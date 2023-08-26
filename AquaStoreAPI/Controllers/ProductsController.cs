@@ -1,8 +1,6 @@
-﻿using AquaStoreAPI.Data;
-using AquaStoreAPI.Entities;
+﻿using Core.Entities;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace AquaStoreAPI.Controllers
 {

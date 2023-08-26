@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace AquaStoreAPI.Data.Migrations
+namespace Infrastructure.Data.Migrations
 {
     /// <inheritdoc />
     public partial class Init : Migration

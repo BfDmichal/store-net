@@ -5,7 +5,9 @@ VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AquaStoreAPI", "AquaStoreAPI\AquaStoreAPI.csproj", "{A306BEAC-FAE0-4741-A414-36E8A8C01068}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{EAE39851-2E4C-4DA5-B4DF-ED97D2CE92F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{EAE39851-2E4C-4DA5-B4DF-ED97D2CE92F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{6F06537B-11CF-42EB-BC92-842178FABF91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{EAE39851-2E4C-4DA5-B4DF-ED97D2CE92F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAE39851-2E4C-4DA5-B4DF-ED97D2CE92F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAE39851-2E4C-4DA5-B4DF-ED97D2CE92F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F06537B-11CF-42EB-BC92-842178FABF91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F06537B-11CF-42EB-BC92-842178FABF91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F06537B-11CF-42EB-BC92-842178FABF91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F06537B-11CF-42EB-BC92-842178FABF91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
