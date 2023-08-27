@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,24 +9,24 @@ namespace AquaStoreAPI.Controllers
     [Route("/api/products")]
     public class ProductsController : ControllerBase
     {
-        private readonly StoreDbContext _dbContext;
+        private readonly IProductRepository _productRepository;
 
-        public ProductsController(StoreDbContext dbContext)
+        public ProductsController(IProductRepository productRepository)
         {
-            this._dbContext = dbContext;
+            this._productRepository = productRepository;
         }
 
         [HttpGet]
-        public ActionResult<Product> GetProducts()
+        public async Task<ActionResult<Product>> GetProducts()
         {
-            var products = _dbContext.Products.ToList();
+            var products = await _productRepository.GetProductsAsync();
             return Ok(products);
         }
 
         [HttpGet("{id}")]
-        public ActionResult<IEnumerable<Product>> GetProduct([FromRoute] int id)
+        public async Task<ActionResult<IEnumerable<Product>>> GetProduct([FromRoute] int id)
         {
-            var product = _dbContext.Products.FirstOrDefault(p => p.Id == id);
+            var product = await _productRepository.GetProductByIdAsync(id);
             return Ok(product);
         }
     }
