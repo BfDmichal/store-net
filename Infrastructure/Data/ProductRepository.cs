@@ -22,7 +22,7 @@ namespace Infrastructure.Data
             return await _dbContext.Products.FirstOrDefaultAsync(p => p.Id == id);
         }
 
-        public async Task<IEnumerable<Product>> GetProductsAsync()
+        public async Task<IReadOnlyList<Product>> GetProductsAsync()
         {
             return await _dbContext.Products.ToListAsync();
         }
