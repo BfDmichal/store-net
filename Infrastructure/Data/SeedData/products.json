@@ -1,0 +1,142 @@
+﻿[
+  {
+    "Name": "100-Liter Aquarium",
+    "Description": "Glass aquarium with a capacity of 100 liters.",
+    "Price": 199.99,
+    "PictureUrl": "https://example.com/aquarium.jpg",
+    "ProductCategoryId": 1
+  },
+  {
+    "Name": "Aquarium Starter Kit",
+    "Description": "Complete aquarium starter kit for beginners.",
+    "Price": 79.99,
+    "PictureUrl": "https://example.com/starter-kit.jpg",
+    "ProductCategoryId": 2
+  },
+  {
+    "Name": "Tropical Fish Food",
+    "Description": "High-quality fish food for tropical fish.",
+    "Price": 9.99,
+    "PictureUrl": "https://example.com/tropical-fish-food.jpg",
+    "ProductCategoryId": 4
+  },
+  {
+    "Name": "Automatic Fish Feeder",
+    "Description": "Programmable automatic fish feeder for regular feeding.",
+    "Price": 49.99,
+    "PictureUrl": "https://example.com/automatic-feeder.jpg",
+    "ProductCategoryId": 4
+  },
+  {
+    "Name": "African Cichlid Aquarium",
+    "Description": "Aquarium setup designed for African Cichlid fish.",
+    "Price": 179.99,
+    "PictureUrl": "https://example.com/african-cichlid-aquarium.jpg",
+    "ProductCategoryId": 2
+  },
+  {
+    "Name": "Hermit Crab Habitat",
+    "Description": "Complete habitat for hermit crabs.",
+    "Price": 39.99,
+    "PictureUrl": "https://example.com/hermit-crab.jpg",
+    "ProductCategoryId": 3
+  },
+  {
+    "Name": "Betta Fish",
+    "Description": "Colorful Betta fish for your aquarium.",
+    "Price": 14.99,
+    "PictureUrl": "https://example.com/betta-fish.jpg",
+    "ProductCategoryId": 1
+  },
+  {
+    "Name": "Fish Tank Decorations",
+    "Description": "Assortment of decorative items for fish tanks.",
+    "Price": 19.99,
+    "PictureUrl": "https://example.com/decorations.jpg",
+    "ProductCategoryId": 5
+  },
+  {
+    "Name": "Aquarium Heater",
+    "Description": "Heater for maintaining the right temperature in your aquarium.",
+    "Price": 34.99,
+    "PictureUrl": "https://example.com/heater.jpg",
+    "ProductCategoryId": 2
+  },
+  {
+    "Name": "Goldfish",
+    "Description": "Common goldfish for your home aquarium.",
+    "Price": 9.99,
+    "PictureUrl": "https://example.com/goldfish.jpg",
+    "ProductCategoryId": 1
+  },
+  {
+    "Name": "Angelfish",
+    "Description": "Graceful angelfish for your freshwater aquarium.",
+    "Price": 24.99,
+    "PictureUrl": "https://example.com/angelfish.jpg",
+    "ProductCategoryId": 1
+  },
+  {
+    "Name": "Aquarium Air Pump",
+    "Description": "Air pump for oxygenating your aquarium water.",
+    "Price": 24.99,
+    "PictureUrl": "https://example.com/air-pump.jpg",
+    "ProductCategoryId": 2
+  },
+  {
+    "Name": "Koi Fish",
+    "Description": "Beautiful koi fish for your pond or aquarium.",
+    "Price": 49.99,
+    "PictureUrl": "https://example.com/koi-fish.jpg",
+    "ProductCategoryId": 1
+  },
+  {
+    "Name": "Aquarium Test Kit",
+    "Description": "Kit for testing and maintaining water quality in your aquarium.",
+    "Price": 19.99,
+    "PictureUrl": "https://example.com/test-kit.jpg",
+    "ProductCategoryId": 5
+  },
+  {
+    "Name": "Aquarium Gravel Cleaner",
+    "Description": "Gravel cleaner for removing debris from your aquarium substrate.",
+    "Price": 14.99,
+    "PictureUrl": "https://example.com/gravel-cleaner.jpg",
+    "ProductCategoryId": 5
+  },
+  {
+    "Name": "Fish Net",
+    "Description": "Fish net for safely catching and handling fish in your aquarium.",
+    "Price": 7.99,
+    "PictureUrl": "https://example.com/fish-net.jpg",
+    "ProductCategoryId": 5
+  },
+  {
+    "Name": "Aquarium Water Conditioner",
+    "Description": "Water conditioner to make tap water safe for your fish.",
+    "Price": 9.99,
+    "PictureUrl": "https://example.com/water-conditioner.jpg",
+    "ProductCategoryId": 5
+  },
+  {
+    "Name": "Aquarium Thermometer",
+    "Description": "Digital aquarium thermometer for monitoring water temperature.",
+    "Price": 8.99,
+    "PictureUrl": "https://example.com/thermometer.jpg",
+    "ProductCategoryId": 5
+  },
+  {
+    "Name": "Cichlid Pellet Food",
+    "Description": "Specially formulated pellet food for Cichlid fish.",
+    "Price": 12.99,
+    "PictureUrl": "https://example.com/cichlid-food.jpg",
+    "ProductCategoryId": 4
+  },
+  {
+    "Name": "Live Aquarium Plants",
+    "Description": "Assortment of live plants to enhance your aquarium's natural look.",
+    "Price": 29.99,
+    "PictureUrl": "https://example.com/live-plants.jpg",
+    "ProductCategoryId": 5
+  }
+]

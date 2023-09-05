@@ -1,6 +1,8 @@
-﻿using Core.Entities;
+﻿using AquaStoreAPI.Dtos;
+using AutoMapper;
+using Core.Entities;
 using Core.Interfaces;
-using Infrastructure.Data;
+using Core.Specification;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AquaStoreAPI.Controllers
@@ -9,25 +11,30 @@ namespace AquaStoreAPI.Controllers
     [Route("/api/products")]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductRepository _productRepository;
+        private readonly IGenericRepository<Product> _productRepository;
+        private readonly IMapper _mapper;
 
-        public ProductsController(IProductRepository productRepository)
+        public ProductsController(IGenericRepository<Product> productRepository, IMapper mapper)
         {
-            this._productRepository = productRepository;
+            _productRepository = productRepository;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<ActionResult<Product>> GetProducts()
+        public async Task<ActionResult<IReadOnlyList<ProductDto>>> GetProducts()
         {
-            var products = await _productRepository.GetProductsAsync();
-            return Ok(products);
+            var spec = new ProductsWithCategoriesSpecification();
+            var products = await _productRepository.GetAllWithSpecAsync(spec);
+
+            return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductDto>>(products));
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProduct([FromRoute] int id)
+        public async Task<ActionResult<Product>> GetProduct([FromRoute] int id)
         {
-            var product = await _productRepository.GetProductByIdAsync(id);
-            return Ok(product);
+            var spec = new ProductsWithCategoriesSpecification(id);
+            var product = await _productRepository.GetEntityWithSpec(spec);
+            return Ok(_mapper.Map<Product, ProductDto>(product));
         }
     }
 }
