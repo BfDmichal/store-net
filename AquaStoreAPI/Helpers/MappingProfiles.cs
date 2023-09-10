@@ -12,7 +12,6 @@ namespace AquaStoreAPI.Helpers
                 .ForMember(p => p.ProductCategory, x => x.MapFrom(n => n.ProductCategory.Name))
                 .ForMember(p => p.PictureUrl, o => o.MapFrom<ProductUrlResolver>());
 
-            CreateMap<ProductCategory, ProductCategoryDto>();
         }
     }
 }
