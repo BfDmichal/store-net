@@ -34,6 +34,13 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
     return new BadRequestObjectResult(errorResponse);
 };
 });
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("CorsPolicy", policy =>
+    {
+        policy.AllowAnyHeader().AllowAnyMethod().WithOrigins(builder.Configuration["AllowedOrigins"]);
+    });
+});
 
 var app = builder.Build();
 
@@ -46,6 +53,8 @@ app.UseStatusCodePagesWithReExecute("/errors/{0}");
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
+
+app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 
@@ -64,5 +73,6 @@ catch (Exception ex)
 {
     logger.LogError(ex, "An error occured during migration");
 }
+
 
 app.Run();

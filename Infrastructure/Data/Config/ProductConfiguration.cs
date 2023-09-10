@@ -19,6 +19,7 @@ namespace Infrastructure.Data.Config
 
             builder.Property(p => p.Price)
                 .IsRequired()
+                .HasPrecision(18,2)
                 .HasColumnType("decimal(18,2)");
              
             builder.Property(p => p.PictureUrl)

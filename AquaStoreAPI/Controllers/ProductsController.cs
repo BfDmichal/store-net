@@ -1,9 +1,12 @@
 ﻿using AquaStoreAPI.Dtos;
+using AquaStoreAPI.Helpers;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Core.Specification;
+using Core.Specifications;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace AquaStoreAPI.Controllers
 {
@@ -21,12 +24,15 @@ namespace AquaStoreAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<ProductDto>>> GetProducts()
+        public async Task<ActionResult<Pagination<ProductDto>>> GetProducts([FromQuery] ProductSpecificationParams specParams)
         {
-            var spec = new ProductsWithCategoriesSpecification();
+            var spec = new ProductsWithCategoriesSpecification(specParams);
+            var count = new ProductWithFiltersForCountSpecification(specParams);
+            var totalItems = await _productRepository.CountAsync(count);
             var products = await _productRepository.GetAllWithSpecAsync(spec);
+            var data = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductDto>>(products);
 
-            return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductDto>>(products));
+            return Ok(new Pagination<ProductDto>(specParams.PageIndex, specParams.PageSize, totalItems, data));
         }
 
         [HttpGet("{id}")]

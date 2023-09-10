@@ -15,8 +15,9 @@ namespace Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            modelBuilder.Entity<Product>().Property(p => p.Price).HasPrecision(18, 2);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
