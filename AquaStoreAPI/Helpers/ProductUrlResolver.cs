@@ -1,4 +1,4 @@
-﻿using AquaStoreAPI.Dtos;
+﻿using Application.Dtos;
 using AutoMapper;
 using Core.Entities;
 

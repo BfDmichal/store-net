@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AquaStoreAPI.Controllers
 {
-    [ApiController]
     [Route("errors/{code}")]
     [ApiExplorerSettings(IgnoreApi = true)]
     public class ErrorController : ControllerBase

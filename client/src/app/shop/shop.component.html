@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <section class="col-3">
+      <h5 class="text-warning ms-3">Sort</h5>
+      <select class="form-select mb-4">
+        <option selected>Alphabetical</option>
+        <option>Price: Low to high</option>
+        <option>Price: High to low</option>
+      </select>
+      <h5 class="text-warning ms-3">Categories</h5>
+      <ul class="list-group my-3">
+        <li
+          class="list-group-item"
+          [class.active]="category.id === shopParams.categoryId"
+          [value]="category.id"
+          (click)="onCategorySelected(category.id)"
+          *ngFor="let category of categories"
+        >
+          {{ category.name }}
+        </li>
+      </ul>
+    </section>
+    <section class="col-9">
+      <div class="d-flex justify-content-between align-items-center pb-2">
+        <app-paging-header [totalCount]="shopParams.totalCount" [pageNumber]="shopParams.pageNumber" [pageSize]="shopParams.pageNumber"></app-paging-header>
+        <div class="d-flex mt-2">
+          <input (keyup.enter)="onSearch()" type="text" placeholder="Search" class="form-control me-2" #search/>
+          <button (click)="onSearch()" class="btn btn-outline-primary mx-2">Search</button>
+          <button (click)="onReset()" class="btn btn-outline-success mx-2">Reset</button>
+        </div>
+      </div>
+      <div class="row row-cols-3 g-3 mb-4">
+        <div class="col" *ngFor="let product of products">
+          <app-product-item [product]="product"></app-product-item>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <app-pager [totalCount]="shopParams.totalCount" [pageSize]="shopParams.pageSize" (pageChange)="onPageChanged($event)"></app-pager>
+      </div>
+    </section>
+  </div>
+</div>

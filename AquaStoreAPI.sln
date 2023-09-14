@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AquaStoreAPI", "AquaStoreAP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{EAE39851-2E4C-4DA5-B4DF-ED97D2CE92F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{6F06537B-11CF-42EB-BC92-842178FABF91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{6F06537B-11CF-42EB-BC92-842178FABF91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{104B8DBB-0431-46F1-98C8-FCAE18477C51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{6F06537B-11CF-42EB-BC92-842178FABF91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F06537B-11CF-42EB-BC92-842178FABF91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F06537B-11CF-42EB-BC92-842178FABF91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{104B8DBB-0431-46F1-98C8-FCAE18477C51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{104B8DBB-0431-46F1-98C8-FCAE18477C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{104B8DBB-0431-46F1-98C8-FCAE18477C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{104B8DBB-0431-46F1-98C8-FCAE18477C51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

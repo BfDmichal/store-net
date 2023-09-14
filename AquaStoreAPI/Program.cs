@@ -1,3 +1,4 @@
+using Application.Services;
 using AquaStoreAPI.Errors;
 using AquaStoreAPI.Middleware;
 using Core.Interfaces;
@@ -11,10 +12,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<StoreDbContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductCategoryService, ProductCategoryService>();
 builder.Services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.Configure<ApiBehaviorOptions>(options =>
@@ -38,7 +42,7 @@ builder.Services.AddCors(opt =>
 {
     opt.AddPolicy("CorsPolicy", policy =>
     {
-        policy.AllowAnyHeader().AllowAnyMethod().WithOrigins(builder.Configuration["AllowedOrigins"]);
+        policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
     });
 });
 
@@ -50,6 +54,9 @@ app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
+app.UseSwagger();
+app.UseSwaggerUI();
+
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
@@ -59,6 +66,7 @@ app.UseCors("CorsPolicy");
 app.UseAuthorization();
 
 app.MapControllers();
+
 
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;

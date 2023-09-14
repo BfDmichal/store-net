@@ -1,4 +1,5 @@
-﻿using AquaStoreAPI.Dtos;
+﻿using Application.Dtos;
+using Application.Services;
 using AquaStoreAPI.Helpers;
 using AutoMapper;
 using Core.Entities;
@@ -14,33 +15,34 @@ namespace AquaStoreAPI.Controllers
     [Route("/api/products")]
     public class ProductsController : ControllerBase
     {
-        private readonly IGenericRepository<Product> _productRepository;
-        private readonly IMapper _mapper;
+        private readonly IProductService _productService;
+        private readonly IProductCategoryService _productCategoryService;
 
-        public ProductsController(IGenericRepository<Product> productRepository, IMapper mapper)
+        public ProductsController(IProductService productService, IProductCategoryService productCategoryService)
         {
-            _productRepository = productRepository;
-            _mapper = mapper;
+            _productService = productService;
+            this._productCategoryService = productCategoryService;
         }
 
         [HttpGet]
         public async Task<ActionResult<Pagination<ProductDto>>> GetProducts([FromQuery] ProductSpecificationParams specParams)
         {
-            var spec = new ProductsWithCategoriesSpecification(specParams);
-            var count = new ProductWithFiltersForCountSpecification(specParams);
-            var totalItems = await _productRepository.CountAsync(count);
-            var products = await _productRepository.GetAllWithSpecAsync(spec);
-            var data = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductDto>>(products);
+            var result = await _productService.GetProducts(specParams);
 
-            return Ok(new Pagination<ProductDto>(specParams.PageIndex, specParams.PageSize, totalItems, data));
+            return Ok(result);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct([FromRoute] int id)
         {
-            var spec = new ProductsWithCategoriesSpecification(id);
-            var product = await _productRepository.GetEntityWithSpec(spec);
-            return Ok(_mapper.Map<Product, ProductDto>(product));
+            var result = await _productService.GetProduct(id);
+            return Ok(result);
+        }
+
+        [HttpGet("categories")]
+        public async Task<ActionResult<IReadOnlyList<ProductCategoryDto>>> GetProductCategories()
+        {
+            return Ok(await _productCategoryService.GetProductCategories());
         }
     }
 }

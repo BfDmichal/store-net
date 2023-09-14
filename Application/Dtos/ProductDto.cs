@@ -1,6 +1,4 @@
-﻿using Core.Entities;
-
-namespace AquaStoreAPI.Dtos
+﻿namespace Application.Dtos
 {
     public class ProductDto
     {

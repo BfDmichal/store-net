@@ -1,4 +1,4 @@
-﻿namespace AquaStoreAPI.Helpers
+﻿namespace Application.Dtos
 {
     public class Pagination<T> where T : class
     {
